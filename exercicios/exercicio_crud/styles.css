@@ -1,0 +1,41 @@
+.btn-primario{
+    background-color: rgb(100, 100, 215);
+    color: white;
+    font-weight: bold;
+}
+
+.btn-primario:hover{
+    background-color:  rgb(143, 143, 221);
+    color: white;
+    font-weight: bold;
+}
+
+.btn-editar{
+    background-color: #79b88b;
+    color: white;
+}
+
+.btn-editar:hover{
+    background-color: #59936a;
+    color: white;
+}
+
+.btn-excluir{
+    background-color: #df4756;
+    color: white;
+}
+
+.btn-excluir:hover{
+    background-color: #ab404a;
+    color: white;
+}
+
+.btn-cancelar{
+    background-color: #4f4d51;
+    color: white;
+}
+
+.btn-cancelar:hover{
+    background-color: #454448;
+    color: white;
+}

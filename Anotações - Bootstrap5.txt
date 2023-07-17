@@ -1,0 +1,233 @@
+O que é bootstrap?
+
+- Framewoork voltado para css
+- Focado em responsividade
+- Possui recursos para padronizar desing entre diferentes tipos de layouts (entre desktop e mobile)
+- É uma biblioteca de classes css
+- Trabalha com diversos padrões e alternativas para estilizar os componentes e layouts
+
+- Permite criar sites modernos, responsivos e atraentes, tendo em vista que suas classes trabalham com problemas em comum ao desenvolver para web.
+
+===============================================
+
+Ambientação do curso.
+
+===============================================
+
+Como referenciar o Bootstrap5 em um projeto via CDN:
+
+Para usufruir das classes do bootstrap, basta importar o arquivo CSS e JS que referencia ao bootstrap no site do BootStrap, e colocar no código que está sendo construído
+
+Link para acessar o site do bootstrap:
+https://getbootstrap.com/docs/5.0/getting-started/introduction/
+
+Possíveis problemas: ao utilizar um link específico, a versão que será utilizada é aquela que está informada no link do css. Por exemplo:
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+Dessa forma, no link informa a versão que está sendo utilizada: @5.0.2
+
+O ideial é usar uma 'grande versão', que neste caso seria a maior/mais atualizada versão do número em questão.
+Por exemplo será: @5
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+---
+
+Para criar uma tabela autoticamente com 5 colunas e com conteúdo dentro, faça: 
+- table>tr>td{Coluna $}*5
+
+Onde que {Coluna $}*5, irá gerar 5 colunas com o nome 'Coluna $'
+
+---
+
+Também é possível adicionar o BootStrap5 via terminal, adicionando os arquivos na pasta do projeto.
+
+Para isso, na raíz do projeto, utilzar o comando:
+- npm install bootstrap@<versão_desejada>
+
+Esse comando irá baixar as depedencias necessárias para a utilização do bootstrap
+
+Feito isso, basta fazer o importe corretamente na raíz do projeto.
+
+---
+
+Quando utilizar bootstrap via CDN?
+- Quando o site já está sido desenvolvido e for hospedado em algum servidor na web. ASsim, muito improvável que ao utilizar o bootstrap via CDN, os recursos estejam indisponívies, ou seja, o servidor que armaze o código do bootstrap ficar fora do ar.
+
+Quando utilizar bootstrap localmente?
+- Quando o projeto estiver em fase de desenvolvimento. Além disso, caso a internt caia, os recursos do bootstrap ainda estarão disponíveis.
+
+===============================================
+
+Breakpoints pra Criação de Leiautes Responsivos
+
+- Design Responsivo:
+Criar versões de layouts diferentes para diferentes tipos de dispositivos (saída da imagem)
+
+---
+
+- Breakpoints
+
+Representam algumas possíveis larguras (em px) de telas. Assim, eles serão usados para definir estilos (e layout) para uma determinada tela.
+
+O sistema de layout do BootStrap5 prioriza os dispositivos móveis primeiro. Assim, o programador precisa adicionar classes de breakpoints ao seus componentes caso o mesmo seja utilizado em dispositivos com telas maiores.
+
+- Tabela com uso de breakpoints
+
+Breakpoint		Infixo de Classe		Dimensão
+X-Small		Nenhum(padrão)		<576px
+Small			sm				≥576px
+Medium		md			 	≥768px
+Large			lg			 	≥992px
+Extra large		xl				≥1200px
+Extra extra 	large	xxl			≥1400px
+
+Dessa forma, esses infixos estarão no meio do nome das classes para definir um breakpoint.
+
+---
+
+Quando a largura de uma tela é maior que todas as classes breakpoint do componente, a classe com maior breakpoint será utilizada.	
+
+===============================================
+
+Contêineres para Criação de Leiautes Responsivos
+
+O Bootstrap permite utlizar classes de conteiners que possuem larguras fixas ou variavéis. Com isso é possível criar layouts responsivos.
+
+Há tres classes de conteiner:
+- container: 
+	que define uma largura máxima em cada ponto responsivo de breakpoint
+
+- container-fluid: 
+	100% em todos os breakpoint
+
+- container-{breakpoint}: 
+	que é de largura: 100% até breakpoint especificado
+
+
+- Há uma tabela mostrando as classes de conteiners e as dimensões que o conteúdo será exibido
+https://getbootstrap.com/docs/5.3/layout/containers/
+
+Os conteiners também se utilizam de breakpoints para determinar pontos onde que o layout passa a ter um tipo de comportamento.
+
+===============================================
+
+Sistema de Layout em Grid
+
+- Utiliza flex-box internamente
+
+Um grid divide um conteiner virtualmente em 12 colunas, de mesma largura. Assim, é possível definir definir layouts responsivos.
+
+- Assim é possível realizar um agrupamento dessas colunas e fazer uma configuração conforme a necessidade.
+
+Para utilziar um grid, é necessário criar uma div dentro de um cotainer e utilizar as classes "row" e "col"
+
+Exemplo:
+<div class="container">
+        <h1> Grid com colunas pre-definida</h1>
+        <div class="row">
+1            <div class="col-3 bg-info bg-opacity-25 h100"> Coluna 1 </div>
+ 2           <div class="col-6 bg-info bg-opacity-50 h100"> Coluna 2 </div>
+  3          <div class="col-3 bg-info bg-opacity-75 h100"> Coluna 3 </div>
+  4          <div class="col bg-info bg-opacity-50 h100"> Coluna 4 </div>
+	<div class="col-9 bg-info bg-opacity-75 h100"> Coluna 4 </div>
+	<div class="col bg-info bg-opacity-50 h100"> Coluna 4 </div>
+        </div>
+    </div>
+
+- Tamanho pré-definido
+Esse exemplo irá criar uma linha com espaçamento virtual em 12, e uma segunda linha tbm com espaço virtual 12.
+Entretanto, nas linhas 1, 2 e 3, é definindo qual será a quantidade de colunas que cada div irá ter, atráves da classe "col-<numero>". 
+Assim sendo, o somatório das 3 divs totalizam 12. Dessa forma, haverá uma linha somente para essas 3 divs. 
+
+- Tamanho adaptativo.
+Logo após, na linha 4, a última div terá o espaçamento de 12 colunas, pois o valor não foi 
+definindo, e quando não é definido (não tem o sufixo númerico), o bootstrap adapta o conteúdo ter o espaçamento de 12 colunas virtuais.
+
+---
+
+Layout com grid responsivo: para utilizar, é necessário usar as classes com os infixos de breakpoint
+
+Exemplo:
+       <div class="container">
+            <h1> Layout comum para websites com responsividade</h1>
+            <div class="row">
+                <div class="col-12 bg-dark bg-opacity-25 h100"> Cabeçalho </div>
+ 1               <div class="col-12 col-md-3 bg-dark bg-opacity-50 h400"> Menu </div>
+  2              <div class="col-12 col-md-9 bg-dark bg-opacity-75 h400"> Conteúdo </div>
+                <div class="col-12 bg-dark bg-opacity-25 h100"> Rodapé </div>
+            <div>
+        </div>
+
+Nas linhas 1 e 2 ocorre o uso de breakpoit. Portanto, a classe col-md-3 e col-md-9 só serao utilizadas em telas de larguras igual ou superior ao breakpoint md (768x) 
+
+===============================================
+
+Formatação de Colunas de layout
+
+- É possível usar classes do bootstrap de forma a editar uma coluna.
+Assim, é possível mudar seu alinhamento, posição em relação a outras colunas, ordem, entre outros.
+
+- Dicas de atalho:
+ div.container>div.row>div.col-3{Coluna $}*3
+
+--> Esse comando cria uma div chamada container, que por sua vez terá uma div da classe row dentro dela e que por fim, a classe row terá três divs da classe 'col-3' com o conteúdo dentro: "Coluna <num>".
+
+Resultado:
+    <div class="container">
+        <div class="row">
+            <div class="col-3">Coluna 1</div>
+            <div class="col-3">Coluna 2</div>
+            <div class="col-3">Coluna 3</div>
+        </div>
+    </div>
+
+---
+
+Alinhamento vertical:
+<div class="row align-items-<star|end|center>">
+IRá alinhar as divs e seu conteudo ao conteiner verticalmente, desde que a altura das divs seja menor que a do conteiner.
+
+Alinhamento por colunas(div):
+<div class="col-3 align-self-<start|end|center>">
+A própria colunha alinha seu conteúdo ao conteiner. Podendo ser no inicio, meio ou fim entre o espaço disponível do conteinner.
+
+Assim, todas as divs da classe Row são flex-box.
+Além disso, as classes Row aceitam parâmetros de breakpoint.
+Exemplo de código:
+ <div class="row align-items-lg-center ">
+
+---
+
+Alinhamento Horizontal
+IRá alinhar as divs e seu conteudo ao conteiner horizontalmente.
+<div class="row justify-content-<end|center|between|around|evenly|start>">
+
+- Mudar ordem de exibição das divs:
+   <div class="container">
+        <h2>Alterando ordem das div</h2>
+        <div class="row justify-content-evenly">
+            <div class="col-3 order-last">DIV 1</div>
+            <div class="col-3 order-first">DIV 2</div>
+            <div class="col-3 order">DIV 3</div>
+        </div>
+    </div>
+
+Basta utilizar a classe 'order-last|first' ou numerado 'order-1|2|3'
+
+- Espaçamento
+<div class="col-3 offset-1 ">DIV 2</div>
+A classe offset vai adicionar um espaço de coluna na div
+
+-Adicionando margem automatica a esquerda
+<div class="col-3 ms-auto">DIV 1</div>
+<div class="col-3 ms-auto ">DIV 2</div>
+As duas divs sofrerão uma margin a esquerda, com o uso da classe ms (margin-start). Por ser automatico, vai dividir o tamanho da margin entre as duas divs ao espaço do conteiner
+
+- Adicionando margem automatica 
+<div class="col-3 mx-auto">DIV 1</div>
+A div vai ter margin a esquerda e a direita, pois o comando mx (margin horizontal - representa o eixo X) 
