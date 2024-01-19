@@ -22,7 +22,6 @@ Com isso, os conceitos abordados e estudados foram:
 
 <br>
 Para visualização do conteúdo estudado, as práticas envolvidas estão neste repositório. <br>
-Eventualmente no futuro, pretendo terminar o devido curso para ter conhecimento maior e mais amplo do framework. <br>
 Por fim, deixarei registrado aqui as anotações que fiz deste curso.
 
 ---
